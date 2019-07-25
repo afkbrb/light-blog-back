@@ -53,7 +53,7 @@ SpringBoot + Maven + Mybatis + PageHelper + MySQL
 5. 当有用户评论时，系统默认**不会**发送邮件通知管理员，相关配置也在/src/main/resources/application.properties，你可以通过设置**blog.mail.on=true**来开启邮件服务，同时请记得配置好blog.mail.*形式的配置项，尤其是要去**申请邮箱服务的授权码**（可参考[这篇文章](https://service.mail.qq.com/cgi-bin/help?subtype=1&&no=1001256&&id=28)）。
 6. `mvn install `
 7. `cd target`
-8. `java -jar ./light-blog-back-0.0.1-SNAPSHOT.jar`
+8. `java -jar ./light-blog-back-0.0.1-SNAPSHOT.jar` 默认情况下程序运行在[http://localhost/api](http://localhost/api)
 
 > 注意：后台系统默认host为localhost，post为80，context-path为/api，所以light-blog.sql中的图片路径均为[http://localhost/api/upload/path/to/image]()形式，如果你修改了上述三项中的任意一项，建议使用查找替换的方法将light-blog.sql中的[http://localhost/api]()替换成相应的形式。
 
