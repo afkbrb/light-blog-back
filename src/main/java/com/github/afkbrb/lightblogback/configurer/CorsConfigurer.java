@@ -19,17 +19,6 @@ public class CorsConfigurer {
     @Value("${blog.domain.front}")
     private String frontDomain;
 
-    @Value("${spring.profiles.active}")
-    private String ENV;//当前激活的配置文件
-
-    private CorsConfiguration buildConfigPublic() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("*"); // 需要认证时，不能允许任何域名使用，需要指定
-        corsConfiguration.addAllowedHeader("*"); // 允许任何头
-        corsConfiguration.addAllowedMethod("*"); // 允许任何方法（post、get等）
-        return corsConfiguration;
-    }
-
     private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true); // 允许session
@@ -44,7 +33,6 @@ public class CorsConfigurer {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", buildConfig()); // 对接口配置跨域设置
-        source.registerCorsConfiguration("/upload", buildConfigPublic());
         return new CorsFilter(source);
     }
 }

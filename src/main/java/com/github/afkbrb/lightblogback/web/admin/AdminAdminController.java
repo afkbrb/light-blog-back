@@ -23,9 +23,6 @@ import java.util.UUID;
 @RequestMapping("/admin/admin")
 public class AdminAdminController {
 
-    @Value("${blog.login.url}")
-    private String LOGIN_URL;
-
     @Value("${blog.admin.id}")
     private Integer ADMIN_ID;
 
@@ -45,16 +42,8 @@ public class AdminAdminController {
         return ResultGenerator.genSuccessResult(admin);
     }
 
-    @GetMapping("/login")
-    public ModelAndView login() {
-        return new ModelAndView(new RedirectView(LOGIN_URL));
-    }
-
     @PostMapping("/login")
     public Result login(String username, String password, HttpServletRequest request) {
-        //if(request.getSession().getAttribute("admin") != null) {
-        //    return ResultGenerator.genFailResult("不可重复登录！");
-        //}
         Admin admin = adminService.findAll().get(0);
         if(admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
             request.getSession().setAttribute("admin", admin.getUsername());

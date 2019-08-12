@@ -49,9 +49,6 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
     @Value("${blog.cipher}")
     private String CIPHER;
 
-    @Value("${blog.login.url}")
-    private String LOGIN_URL;
-
     @Value("${blog.upload.dir}")
     private String UPLOAD_DIR;
 
@@ -108,12 +105,6 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
         });
     }
 
-    //解决跨域问题
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        //registry.addMapping("/**");
-    }
-
     //添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -148,9 +139,11 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
                         return true;
                     }
 
-                    response.sendRedirect(LOGIN_URL);
-                    logger.info("重定向到登录界面(" + LOGIN_URL + ")");
+                    Result result = new Result();
+                    result.setCode(ResultCode.NOT_LOGIN).setMessage("用户未登录");
+                    responseResult(response, result);
                     return false;
+
                 }
             }).addPathPatterns("/admin/**").excludePathPatterns("/admin/admin/login", "/admin/detail");
         }
