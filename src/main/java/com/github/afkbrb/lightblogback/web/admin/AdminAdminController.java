@@ -5,8 +5,6 @@ import com.github.afkbrb.lightblogback.model.Admin;
 import com.github.afkbrb.lightblogback.service.AdminService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

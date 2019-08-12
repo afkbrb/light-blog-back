@@ -52,7 +52,7 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
     @Value("${blog.upload.dir}")
     private String UPLOAD_DIR;
 
-    @Value(("${blog.upload.url}"))
+    @Value("${blog.upload.url}")
     private String UPLOAD_URL;
 
 
