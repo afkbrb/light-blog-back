@@ -7,10 +7,6 @@ Light Blog是一个前后端分离的轻量级个人博客系统，基于本人�
 
 本后台服务系统使用了[spring-boot-api-project-seed](https://github.com/lihengming/spring-boot-api-project-seed)作为基本骨架。
 
-## 预览地址
-
-[2w6f8c.top](http://2w6f8c.top)
-
 ## 技术栈
 
 SpringBoot + Maven + Mybatis + PageHelper + MySQL
